@@ -34,6 +34,11 @@ annotate service.Books with @(
                 Criticality : status.criticality,
                 CriticalityRepresentation : #WithIcon,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : currency_code,
+                Label : 'Currency',
+            },
         ],
     },
     UI.Facets : [
@@ -88,6 +93,11 @@ annotate service.Books with @(
             $Type : 'UI.DataField',
             Label : 'Price',
             Value : price,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : currency_code,
+            Label : 'Currency',
         },
         {
             $Type : 'UI.DataField',
