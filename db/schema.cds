@@ -10,16 +10,35 @@ entity Books : cuid, managed {
     title       : String;
     author      : Association to Authors;
     //managed association
-    genre       : String;
+    genre       : Association to Genres;
     publishedAt : Date;
     pages       : Integer;
     price       : Decimal(9, 2);
-    currency: Association to Currencies;
+    currency    : Association to Currencies;
     stock       : Integer;
-    status: Association to BookStatus;
+    status      : Association to BookStatus;
     Chapters    : Composition of many Chapters
                       on Chapters.book = $self;
 //composition to chapter entity
+}
+
+entity Genres {
+    key code        : Genre;
+        description : String;
+
+}
+
+type Genre : String enum {
+    Fiction = 'Fiction';
+    Science = 'Science';
+    Cooking = 'Cooking';
+    Fantasy = 'Fantasy';
+    Hobby = 'Hobby';
+    Adventure = 'Adventure';
+    SelfHelp = 'Self-Help';
+    NonFiction = 'Non-Fiction';
+    Art = 'Art';
+    Children = 'Children';
 }
 
 entity BookStatus {
